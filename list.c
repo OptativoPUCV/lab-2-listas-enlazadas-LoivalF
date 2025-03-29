@@ -83,7 +83,8 @@ void pushCurrent(List * list, void * data) {
     Node * new = createNode(data);
     Node * prox = list->current->next;
     new->prev = list->current;
-    new->next = prox->next;
+    new->next = prox;
+    list->current->next = new;
     
     if (prox != NULL) 
         prox->prev = new;
